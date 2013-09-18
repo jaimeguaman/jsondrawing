@@ -1,5 +1,5 @@
-//Effort: 11789.490707599438 
-//T: 654.9717059777465 	
+//11465.641934606654 
+//636.9801074781475
 window.JSONDrawing={},
 JSONDrawing.Util=function(){
 	var options=null;
