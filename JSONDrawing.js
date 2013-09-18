@@ -1,5 +1,5 @@
-//Effort: 11789.490707599438 
-//T: 654.9717059777465 	
+//Halstead Effort: 11465.641934606654 
+//T: 636.9801074781475
 window.JSONDrawing={},
 JSONDrawing.Util=function(){
 	var options=null;
@@ -64,7 +64,7 @@ JSONDrawing.Canvas=function(){
 			JSONDrawing.Canvas.setFill(defaultDraw['fill']);			
 		},
 
-		//from here, functions assume that context is setted. My code, my rules bitch :) 
+		//from here, functions assume that context is set. My code, my rules bitch :) 
 		setComposite:function(value){
 			context.globalCompositeOperation=value;
 		},
