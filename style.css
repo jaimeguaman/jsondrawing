@@ -1,0 +1,16 @@
+#canvas-wrapper{
+	float:left;
+	width:640px;
+}
+#form-wrapper{
+	float:left;
+	width:360px;
+}
+#form-wrapper textarea{
+	height:440px;
+	width:100%;
+}
+#form-wrapper button{
+	width:100%;
+	text-align:center;
+}
