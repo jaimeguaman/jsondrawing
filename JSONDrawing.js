@@ -64,7 +64,7 @@ JSONDrawing.Canvas=function(){
 			JSONDrawing.Canvas.setFill(defaultDraw['fill']);			
 		},
 
-		//from here, functions assume that context is setted. My code, my rules bitch :) 
+		//from here, functions assume that context is set. My code, my rules bitch :) 
 		setComposite:function(value){
 			context.globalCompositeOperation=value;
 		},
