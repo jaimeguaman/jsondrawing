@@ -1,5 +1,5 @@
-//Halstead Effort: 11465.641934606654 
-//T: 636.9801074781475
+//Halsted total effort: 6389.422299078649  
+//T: 132.7456832821477 (effort / 18)
 window.JSONDrawing={},
 JSONDrawing.Util=function(){
 	var options=null;
@@ -23,9 +23,8 @@ JSONDrawing.Util=function(){
 			return this.parse(this.getInputData(options.textId));
 		},
 		doBindings: function(){
-			var button=document.getElementById(options.buttonId);
 			var self=this;
-			button.addEventListener("click", function(){
+			document.getElementById(options.buttonId).addEventListener("click", function(){
 				JSONDrawing.Main.draw(self.getData());
 			} , false);
 		}
@@ -50,44 +49,41 @@ JSONDrawing.Canvas=function(){
 			return this.getCanvas(canvasId).getContext('2d')
 		},
 		clearCanvas:function(resetProps){
-			if (canvasId != null){
-				this.getCanvasContext().clearRect(0,0,640,480);
-				context.restore();
-				if (resetProps) JSONDrawing.Canvas.resetProperties();
-			}
+			this.getCanvasContext().clearRect(0,0,640,480);
+			if (resetProps) JSONDrawing.Canvas.resetProperties();
 		},
 		resetProperties:function(){
 			var defaultDraw=JSONDrawing.Util.getDefaultDraw();
-			JSONDrawing.Canvas.setBackground(defaultDraw['background']);
-			JSONDrawing.Canvas.setStroke(defaultDraw['pen']);
-			JSONDrawing.Canvas.setLineWidth(defaultDraw['width']);
-			JSONDrawing.Canvas.setFill(defaultDraw['fill']);			
+			JSONDrawing.Canvas.background(defaultDraw['background']);
+			JSONDrawing.Canvas.pen(defaultDraw['pen']);
+			JSONDrawing.Canvas.width(defaultDraw['width']);
+			JSONDrawing.Canvas.fill(defaultDraw['fill']);
 		},
 
-		//from here, functions assume that context is set. My code, my rules bitch :) 
+		//from here, functions assume that context is set. My code, my rules bitch :)
 		setComposite:function(value){
 			context.globalCompositeOperation=value;
 		},
-		setBackground:function(color){
+		background:function(color){
 			context.canvas.style.backgroundColor=color
 		},
-		setStroke: function(color){
+		pen: function(color){
 			context.strokeStyle = color
 		},
-		setLineWidth: function(value){
+		width: function(value){
 			context.lineWidth=value
 		},
-		setFill: function(color){
+		fill: function(color){
 			context.fillStyle = color
 		},
-		newLine: function(cords){
+		line: function(cords){
 			context.moveTo(cords[0],cords[1]);
 			context.lineTo(cords[2],cords[3]);
 		},
-		newArc: function(cords){
+		circle: function(cords){
 			context.arc(cords[0],cords[1],cords[2],0,Math.PI * 2)
 		},
-		newRect: function(cords){
+		box: function(cords){
 			context.rect(cords[0],cords[1],cords[2] - cords[0], cords[3] - cords[1])
 		},
 		newPath:function(){
@@ -123,55 +119,23 @@ JSONDrawing.Canvas=function(){
 		},
 		processInstructions:function(data){
 			for(i in data){
-				var instruction=i;
-				var value=data[i];
-				JSONDrawing.Canvas.newPath(); 
-				JSONDrawing.Main.applyInstruction(instruction,value);
-				JSONDrawing.Canvas.closePath();
-				JSONDrawing.Canvas.doFill();
-				JSONDrawing.Canvas.doStroke();
+				JSONDrawing.Main.start();
+				JSONDrawing.Main.applyInstruction(i,data[i]);
+				JSONDrawing.Main.end();
 			}
 		},
 		applyInstruction: function(instruction,value){
-			switch (instruction){
-				case 'background':
-					JSONDrawing.Canvas.setBackground(value);
-					break;
-				case 'pen':
-					JSONDrawing.Canvas.setStroke(value);
-					break;
-				case 'width':
-					JSONDrawing.Canvas.setLineWidth(value);
-					break;
-				case 'fill':
-					JSONDrawing.Canvas.setFill(value);
-					break;
-				case 'line':
-					JSONDrawing.Canvas.newLine([
-						value[0],
-						value[1],
-						value[2],
-						value[3]
-					]);
-					break;
-				case 'circle':
-					JSONDrawing.Canvas.newPath(); 
-					JSONDrawing.Canvas.newArc([
-						value[0],
-						value[1],
-						value[2]
-					]);
-					break;
-				case 'box':
-					JSONDrawing.Canvas.newRect([
-						value[0],
-						value[1],
-						value[2],
-						value[3]
-					]);
-					break;
-			}
+			JSONDrawing.Canvas[instruction].call(JSONDrawing.Canvas,value);
+		},
+		start: function(){
+			JSONDrawing.Canvas.newPath(); 
+		},
+		end: function(){
+			JSONDrawing.Canvas.closePath();
+			JSONDrawing.Canvas.doFill();
+			JSONDrawing.Canvas.doStroke();
 		}
+
 	}
 
 }();
@@ -179,6 +143,8 @@ JSONDrawing.Main.init({
 	canvasId:'js-output',
 	textId:'js-input',
 	buttonId:'js-draw',
+	canvasWidth:640,
+	canvasHeight:480,
 	defaultDraw:[{
 		background:"black",
 		pen:"white",
