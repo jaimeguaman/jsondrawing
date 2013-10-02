@@ -1,5 +1,5 @@
 //Halsted total effort: 6389.422299078649  
-//T: 132.7456832821477 (effort / 18)
+//T: 354.9679055043694 (effort / 18)
 window.JSONDrawing={},
 JSONDrawing.Util=function(){
 	var options=null;
