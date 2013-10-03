@@ -44,8 +44,15 @@
 	}
 ]
 </textarea>
-<button id="js-draw"  style="padding:20px;">DRAW</button>
+<button id="js-draw" onClick="JSONDrawing.Main.draw(JSONDrawing.Util.getData())"style="padding:20px;">DRAW</button>
+<button id="js-draw" onClick="JSONDrawing.Main.reset()"style="padding:20px;">CLEAR</button>
+<a href="halsteadTime.html" target="_blank">Métricas</a>
 </div>
 <script src="JSONDrawing.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+	JSONDrawing.Main.reset()
+}
+</script>
 </body>
 </html>
