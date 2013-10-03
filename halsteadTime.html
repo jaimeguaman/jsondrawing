@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<title>Halstead calculate</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+</div>
+<script>
+	function halsteadTime(){
+		var request = new XMLHttpRequest();
+	   	request.open("GET", "log.json", false);
+	   	request.send(null);
+
+		var metrics=JSON.parse(request.responseText),
+		fnEffort=0,
+		fnTime=0,
+		fnMetrics=metrics[0].functions;
+
+		for (var fn in fnMetrics){
+			fnEffort += fnMetrics[fn].complexity.halstead.effort;
+		}
+		fnTime=fnEffort / 18;
+		alert('Total Effort: ' + fnEffort + '   T: ' + fnTime + '\n en la consola puedes copiar los resultados');
+		console.log('Total Effort: ' + fnEffort);
+		console.log('T: ' + fnTime);
+	}
+	halsteadTime();
+</script>
+</body>
+</html>

@@ -1,0 +1,910 @@
+[
+  {
+    "aggregate": {
+      "line": 3,
+      "complexity": {
+        "sloc": {
+          "physical": 83,
+          "logical": 58
+        },
+        "cyclomatic": 1,
+        "halstead": {
+          "operators": {
+            "distinct": 12,
+            "total": 154,
+            "identifiers": [
+              "=",
+              ".",
+              "{}",
+              "()",
+              "function",
+              "var",
+              "return",
+              ":",
+              "*",
+              "-",
+              "[]",
+              "forin"
+            ]
+          },
+          "operands": {
+            "distinct": 69,
+            "total": 193,
+            "identifiers": [
+              "window",
+              "JSONDrawing",
+              "<anonymous>",
+              "Canvas",
+              "canvasId",
+              null,
+              "context",
+              "setCanvas",
+              "id",
+              "\"2d\"",
+              "document",
+              "getElementById",
+              "getContext",
+              "getCanvasContext",
+              "background",
+              "color",
+              "canvas",
+              "style",
+              "backgroundColor",
+              "pen",
+              "strokeStyle",
+              "width",
+              "value",
+              "lineWidth",
+              "fill",
+              "fillStyle",
+              "line",
+              "cords",
+              0,
+              1,
+              "moveTo",
+              2,
+              3,
+              "lineTo",
+              "circle",
+              "Math",
+              "PI",
+              "arc",
+              "box",
+              "rect",
+              "newPath",
+              "beginPath",
+              "endDraw",
+              "stroke",
+              "closePath",
+              "Util",
+              "\"js-output\"",
+              "textId",
+              "\"js-input\"",
+              "defaultDraw",
+              "\"black\"",
+              "\"white\"",
+              "\"none\"",
+              "options",
+              "getDefaultDraw",
+              "\"defaultDraw\"",
+              "getData",
+              "JSON",
+              "parse",
+              "Main",
+              "reset",
+              640,
+              480,
+              "clearRect",
+              "this",
+              "draw",
+              "data",
+              "i",
+              "processInstructions"
+            ]
+          },
+          "length": 347,
+          "vocabulary": 81,
+          "difficulty": 16.782608695652172,
+          "volume": 2199.927951000965,
+          "effort": 36920.52996027706,
+          "bugs": 0.7333093170003216,
+          "time": 2051.1405533487255
+        },
+        "params": 11
+      }
+    },
+    "functions": [
+      {
+        "name": "<anonymous>",
+        "line": 4,
+        "complexity": {
+          "sloc": {
+            "physical": 42,
+            "logical": 14
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 6,
+              "total": 27,
+              "identifiers": [
+                "var",
+                "=",
+                "return",
+                "{}",
+                ":",
+                "function"
+              ]
+            },
+            "operands": {
+              "distinct": 15,
+              "total": 27,
+              "identifiers": [
+                "canvasId",
+                null,
+                "context",
+                "<anonymous>",
+                "setCanvas",
+                "getCanvasContext",
+                "background",
+                "pen",
+                "width",
+                "fill",
+                "line",
+                "circle",
+                "box",
+                "newPath",
+                "endDraw"
+              ]
+            },
+            "length": 54,
+            "vocabulary": 21,
+            "difficulty": 5.4,
+            "volume": 237.1851408300531,
+            "effort": 1280.7997604822867,
+            "bugs": 0.0790617136100177,
+            "time": 71.15554224901592
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "setCanvas",
+        "line": 7,
+        "complexity": {
+          "sloc": {
+            "physical": 4,
+            "logical": 2
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 6,
+              "identifiers": [
+                "=",
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 7,
+              "total": 9,
+              "identifiers": [
+                "id",
+                "canvasId",
+                "context",
+                "\"2d\"",
+                "document",
+                "getElementById",
+                "getContext"
+              ]
+            },
+            "length": 15,
+            "vocabulary": 10,
+            "difficulty": 1.9285714285714288,
+            "volume": 49.82892142331044,
+            "effort": 96.09863417352729,
+            "bugs": 0.016609640474436815,
+            "time": 5.338813009640405
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "getCanvasContext",
+        "line": 11,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 1,
+              "total": 1,
+              "identifiers": [
+                "return"
+              ]
+            },
+            "operands": {
+              "distinct": 1,
+              "total": 1,
+              "identifiers": [
+                "context"
+              ]
+            },
+            "length": 2,
+            "vocabulary": 2,
+            "difficulty": 0.5,
+            "volume": 2,
+            "effort": 1,
+            "bugs": 0.0006666666666666666,
+            "time": 0.05555555555555555
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "background",
+        "line": 14,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 4,
+              "identifiers": [
+                "=",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 5,
+              "total": 6,
+              "identifiers": [
+                "color",
+                "context",
+                "canvas",
+                "style",
+                "backgroundColor"
+              ]
+            },
+            "length": 10,
+            "vocabulary": 7,
+            "difficulty": 1.2,
+            "volume": 28.07354922057604,
+            "effort": 33.688259064691245,
+            "bugs": 0.009357849740192013,
+            "time": 1.8715699480384025
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "pen",
+        "line": 17,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "=",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 3,
+              "total": 4,
+              "identifiers": [
+                "color",
+                "context",
+                "strokeStyle"
+              ]
+            },
+            "length": 6,
+            "vocabulary": 5,
+            "difficulty": 1.3333333333333333,
+            "volume": 13.931568569324174,
+            "effort": 18.575424759098897,
+            "bugs": 0.004643856189774725,
+            "time": 1.0319680421721609
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "width",
+        "line": 20,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "=",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 3,
+              "total": 4,
+              "identifiers": [
+                "value",
+                "context",
+                "lineWidth"
+              ]
+            },
+            "length": 6,
+            "vocabulary": 5,
+            "difficulty": 1.3333333333333333,
+            "volume": 13.931568569324174,
+            "effort": 18.575424759098897,
+            "bugs": 0.004643856189774725,
+            "time": 1.0319680421721609
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "fill",
+        "line": 23,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "=",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 3,
+              "total": 4,
+              "identifiers": [
+                "color",
+                "context",
+                "fillStyle"
+              ]
+            },
+            "length": 6,
+            "vocabulary": 5,
+            "difficulty": 1.3333333333333333,
+            "volume": 13.931568569324174,
+            "effort": 18.575424759098897,
+            "bugs": 0.004643856189774725,
+            "time": 1.0319680421721609
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "line",
+        "line": 26,
+        "complexity": {
+          "sloc": {
+            "physical": 4,
+            "logical": 2
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 8,
+              "identifiers": [
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 8,
+              "total": 13,
+              "identifiers": [
+                "cords",
+                0,
+                1,
+                "context",
+                "moveTo",
+                2,
+                3,
+                "lineTo"
+              ]
+            },
+            "length": 21,
+            "vocabulary": 10,
+            "difficulty": 1.625,
+            "volume": 69.76048999263462,
+            "effort": 113.36079623803126,
+            "bugs": 0.02325349666421154,
+            "time": 6.297822013223959
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "circle",
+        "line": 30,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 7,
+              "identifiers": [
+                "()",
+                ".",
+                "*"
+              ]
+            },
+            "operands": {
+              "distinct": 8,
+              "total": 13,
+              "identifiers": [
+                "cords",
+                0,
+                1,
+                2,
+                "Math",
+                "PI",
+                "context",
+                "arc"
+              ]
+            },
+            "length": 20,
+            "vocabulary": 11,
+            "difficulty": 2.4375,
+            "volume": 69.18863237274596,
+            "effort": 168.64729140856826,
+            "bugs": 0.023062877457581985,
+            "time": 9.369293967142681
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "box",
+        "line": 33,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 10,
+              "identifiers": [
+                "()",
+                ".",
+                "-"
+              ]
+            },
+            "operands": {
+              "distinct": 7,
+              "total": 15,
+              "identifiers": [
+                "cords",
+                0,
+                1,
+                2,
+                3,
+                "context",
+                "rect"
+              ]
+            },
+            "length": 25,
+            "vocabulary": 10,
+            "difficulty": 3.2142857142857144,
+            "volume": 83.04820237218406,
+            "effort": 266.9406504820202,
+            "bugs": 0.027682734124061355,
+            "time": 14.830036137890012
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "newPath",
+        "line": 36,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "context",
+                "beginPath"
+              ]
+            },
+            "length": 4,
+            "vocabulary": 4,
+            "difficulty": 1,
+            "volume": 8,
+            "effort": 8,
+            "bugs": 0.0026666666666666666,
+            "time": 0.4444444444444444
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "endDraw",
+        "line": 39,
+        "complexity": {
+          "sloc": {
+            "physical": 5,
+            "logical": 3
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 6,
+              "identifiers": [
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 4,
+              "total": 6,
+              "identifiers": [
+                "context",
+                "fill",
+                "stroke",
+                "closePath"
+              ]
+            },
+            "length": 12,
+            "vocabulary": 6,
+            "difficulty": 1.5,
+            "volume": 31.019550008653873,
+            "effort": 46.529325012980806,
+            "bugs": 0.010339850002884624,
+            "time": 2.584962500721156
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 46,
+        "complexity": {
+          "sloc": {
+            "physical": 11,
+            "logical": 4
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 6,
+              "total": 10,
+              "identifiers": [
+                "()",
+                ".",
+                "return",
+                "{}",
+                ":",
+                "function"
+              ]
+            },
+            "operands": {
+              "distinct": 8,
+              "total": 11,
+              "identifiers": [
+                "options",
+                "canvasId",
+                "JSONDrawing",
+                "Canvas",
+                "setCanvas",
+                "<anonymous>",
+                "getDefaultDraw",
+                "getData"
+              ]
+            },
+            "length": 21,
+            "vocabulary": 14,
+            "difficulty": 4.125,
+            "volume": 79.95445336320968,
+            "effort": 329.81212012323994,
+            "bugs": 0.026651484454403226,
+            "time": 18.32289556240222
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "getDefaultDraw",
+        "line": 49,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "return",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "options",
+                "\"defaultDraw\""
+              ]
+            },
+            "length": 4,
+            "vocabulary": 4,
+            "difficulty": 1,
+            "volume": 8,
+            "effort": 8,
+            "bugs": 0.0026666666666666666,
+            "time": 0.4444444444444444
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "getData",
+        "line": 52,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 7,
+              "identifiers": [
+                "return",
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 7,
+              "total": 7,
+              "identifiers": [
+                "options",
+                "textId",
+                "document",
+                "getElementById",
+                "value",
+                "JSON",
+                "parse"
+              ]
+            },
+            "length": 14,
+            "vocabulary": 10,
+            "difficulty": 1.5,
+            "volume": 46.50699332842308,
+            "effort": 69.76048999263462,
+            "bugs": 0.01550233110947436,
+            "time": 3.87558277736859
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 65,
+        "complexity": {
+          "sloc": {
+            "physical": 21,
+            "logical": 4
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 4,
+              "total": 8,
+              "identifiers": [
+                "return",
+                "{}",
+                ":",
+                "function"
+              ]
+            },
+            "operands": {
+              "distinct": 4,
+              "total": 7,
+              "identifiers": [
+                "<anonymous>",
+                "reset",
+                "draw",
+                "processInstructions"
+              ]
+            },
+            "length": 15,
+            "vocabulary": 8,
+            "difficulty": 3.5,
+            "volume": 45,
+            "effort": 157.5,
+            "bugs": 0.015,
+            "time": 8.75
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "reset",
+        "line": 67,
+        "complexity": {
+          "sloc": {
+            "physical": 4,
+            "logical": 2
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 10,
+              "identifiers": [
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 11,
+              "total": 13,
+              "identifiers": [
+                0,
+                640,
+                480,
+                "JSONDrawing",
+                "Canvas",
+                "getCanvasContext",
+                "clearRect",
+                "Util",
+                "getDefaultDraw",
+                "this",
+                "draw"
+              ]
+            },
+            "length": 23,
+            "vocabulary": 13,
+            "difficulty": 1.1818181818181819,
+            "volume": 85.11011351724513,
+            "effort": 100.5846796112897,
+            "bugs": 0.028370037839081708,
+            "time": 5.588037756182761
+          },
+          "params": 0
+        }
+      },
+      {
+        "name": "draw",
+        "line": 71,
+        "complexity": {
+          "sloc": {
+            "physical": 5,
+            "logical": 2
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 4,
+              "identifiers": [
+                "forin",
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 4,
+              "total": 7,
+              "identifiers": [
+                "data",
+                "i",
+                "this",
+                "processInstructions"
+              ]
+            },
+            "length": 11,
+            "vocabulary": 7,
+            "difficulty": 2.625,
+            "volume": 30.880904142633646,
+            "effort": 81.06237337441333,
+            "bugs": 0.010293634714211216,
+            "time": 4.503465187467407
+          },
+          "params": 1
+        }
+      },
+      {
+        "name": "processInstructions",
+        "line": 76,
+        "complexity": {
+          "sloc": {
+            "physical": 7,
+            "logical": 4
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 11,
+              "identifiers": [
+                "forin",
+                "()",
+                "."
+              ]
+            },
+            "operands": {
+              "distinct": 6,
+              "total": 14,
+              "identifiers": [
+                "data",
+                "i",
+                "JSONDrawing",
+                "Canvas",
+                "newPath",
+                "endDraw"
+              ]
+            },
+            "length": 25,
+            "vocabulary": 9,
+            "difficulty": 3.5,
+            "volume": 79.24812503605781,
+            "effort": 277.36843762620236,
+            "bugs": 0.02641604167868594,
+            "time": 15.409357645900132
+          },
+          "params": 1
+        }
+      }
+    ],
+    "maintainability": 138.90923753750982,
+    "params": 0.5789473684210527,
+    "module": "../../JSONDrawing.js"
+  }
+]

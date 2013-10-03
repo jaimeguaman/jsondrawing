@@ -1,68 +1,15 @@
-//Halsted total effort: 6389.422299078649  
-//T: 354.9679055043694 (effort / 18)
+//Halsted total effort: 3094.879091867182 
+//T: 171.93772732595457    (effort / 18)
 window.JSONDrawing={},
-JSONDrawing.Util=function(){
-	var options=null;
-	return {
-		setOptions: function(opts){
-			options=opts;
-		},
-		getOptions: function(){
-			return options;
-		},
-		getDefaultDraw: function(){
-			return options['defaultDraw'][0];
-		},
-		parse: function(data){
-			return JSON.parse(data);
-		},
-		getInputData: function(element){
-			return document.getElementById(element).value;
-		},
-		getData: function(){
-			return this.parse(this.getInputData(options.textId));
-		},
-		doBindings: function(){
-			var self=this;
-			document.getElementById(options.buttonId).addEventListener("click", function(){
-				JSONDrawing.Main.draw(self.getData());
-			} , false);
-		}
-	}
-}(),
 JSONDrawing.Canvas=function(){
 	var canvasId=null, context=null;
 	return {
 		setCanvas:function(id){
-			canvasId=id
-		},
-		setContext: function(ctx){
-			context=ctx
-		},
-		getCanvas: function(){
-			return document.getElementById(canvasId)
-		},
-		getContext: function(canvas){
-			return canvas.getContext('2d')
+			canvasId=id;
+			context=document.getElementById(canvasId).getContext('2d')
 		},
 		getCanvasContext: function(){
-			return this.getCanvas(canvasId).getContext('2d')
-		},
-		clearCanvas:function(resetProps){
-			this.getCanvasContext().clearRect(0,0,640,480);
-			if (resetProps) JSONDrawing.Canvas.resetProperties();
-		},
-		resetProperties:function(){
-			var defaultDraw=JSONDrawing.Util.getDefaultDraw();
-			JSONDrawing.Canvas.background(defaultDraw['background']);
-			JSONDrawing.Canvas.pen(defaultDraw['pen']);
-			JSONDrawing.Canvas.width(defaultDraw['width']);
-			JSONDrawing.Canvas.fill(defaultDraw['fill']);
-		},
-
-		//from here, functions assume that context is set. My code, my rules bitch :)
-		setComposite:function(value){
-			context.globalCompositeOperation=value;
+			return context
 		},
 		background:function(color){
 			context.canvas.style.backgroundColor=color
@@ -78,7 +25,7 @@ JSONDrawing.Canvas=function(){
 		},
 		line: function(cords){
 			context.moveTo(cords[0],cords[1]);
-			context.lineTo(cords[2],cords[3]);
+			context.lineTo(cords[2],cords[3])
 		},
 		circle: function(cords){
 			context.arc(cords[0],cords[1],cords[2],0,Math.PI * 2)
@@ -89,66 +36,50 @@ JSONDrawing.Canvas=function(){
 		newPath:function(){
 			context.beginPath()
 		},
-		doFill: function(){
-			context.fill()
-		},
-		doStroke: function(){
-			context.stroke()
-		},
-		closePath:function(){
+		endDraw:function(){
+			context.fill();
+			context.stroke();
 			context.closePath()
 		}
-
 	}
-}(), JSONDrawing.Main=function(){
+}(),
+JSONDrawing.Util=function(options){
+	JSONDrawing.Canvas.setCanvas(options.canvasId);
 	return {
-		init: function(options){
-			JSONDrawing.Util.setOptions(options);
-			JSONDrawing.Canvas.setCanvas(options.canvasId);
-			JSONDrawing.Canvas.setContext(JSONDrawing.Canvas.getCanvasContext());
-			JSONDrawing.Canvas.setComposite('source-over');
-			JSONDrawing.Main.draw(options.defaultDraw);
-			JSONDrawing.Util.doBindings();
+		getDefaultDraw: function(){
+			return options['defaultDraw'];
 		},
-		draw: function(data){
-			JSONDrawing.Canvas.clearCanvas(true); 
-			for (i in data){
-				JSONDrawing.Main.processInstructions(data[i]);
-			}
-
-		},
-		processInstructions:function(data){
-			for(i in data){
-				JSONDrawing.Main.start();
-				JSONDrawing.Main.applyInstruction(i,data[i]);
-				JSONDrawing.Main.end();
-			}
-		},
-		applyInstruction: function(instruction,value){
-			JSONDrawing.Canvas[instruction].call(JSONDrawing.Canvas,value);
-		},
-		start: function(){
-			JSONDrawing.Canvas.newPath(); 
-		},
-		end: function(){
-			JSONDrawing.Canvas.closePath();
-			JSONDrawing.Canvas.doFill();
-			JSONDrawing.Canvas.doStroke();
+		getData: function(){
+			return JSON.parse(document.getElementById(options.textId).value);
 		}
-
 	}
-
-}();
-JSONDrawing.Main.init({
+}({
 	canvasId:'js-output',
 	textId:'js-input',
-	buttonId:'js-draw',
-	canvasWidth:640,
-	canvasHeight:480,
 	defaultDraw:[{
 		background:"black",
 		pen:"white",
 		width:1,
 		fill:"none"		
 	}]
-});
+}), JSONDrawing.Main=function(){
+	return {
+		reset: function(){
+			JSONDrawing.Canvas.getCanvasContext().clearRect(0,0,640,480);
+			this.draw(JSONDrawing.Util.getDefaultDraw())
+		},
+		draw: function(data){
+			for (i in data){
+				this.processInstructions(data[i])
+			}
+		},
+		processInstructions:function(data){
+			for(i in data){
+				JSONDrawing.Canvas.newPath(); 
+				JSONDrawing.Canvas[i](data[i]);
+				JSONDrawing.Canvas.endDraw()
+			}
+		}
+	}
+
+}();
